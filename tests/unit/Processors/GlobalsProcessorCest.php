@@ -23,9 +23,11 @@ class GlobalsProcessorCest
 
         $I->assertEquals(
             [
-                'php_globals' => [
-                    'post' => [
-                        'test' => 'value',
+                'extra' => [
+                    'php_globals' => [
+                        'post' => [
+                            'test' => 'value',
+                        ]
                     ]
                 ]
             ],

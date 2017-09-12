@@ -20,7 +20,7 @@ class BacktraceProcessorCest
 
         $testRecord   = $testSubject([]);
         $backTrace    = debug_backtrace();
-        $totalRecords = count($testRecord['trace']);
+        $totalRecords = count($testRecord['extra']['trace']);
 
         for ($currentPos = 0; $currentPos < $totalRecords; $currentPos++) {
             $I->assertEquals(
@@ -30,7 +30,7 @@ class BacktraceProcessorCest
                     'line'    => $backTrace[$currentPos + 2]['line'] ?? '',
                     'message' => $backTrace[$currentPos + 2]['message'] ?? ''
                 ],
-                $testRecord['trace'][$currentPos]
+                $testRecord['extra']['trace'][$currentPos]
             );
         }
     }
@@ -64,7 +64,7 @@ class BacktraceProcessorCest
                     'message' => 'message',
                 ]
             ],
-            $testRecord['trace']
+            $testRecord['extra']['trace']
         );
     }
 }
