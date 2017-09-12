@@ -35,9 +35,11 @@ class BacktraceProcessor
         $backTrace = debug_backtrace();
         if (isset($record['trace'])) {
             $backTrace = $record['trace'];
+        } elseif (isset($record['extra']['trace'])) {
+            $backTrace = $record['extra']['trace'];
         }
 
-        $record['trace'] = [];
+        $record['extra']['trace'] = [];
 
         $currentPos = 0;
 
@@ -55,7 +57,7 @@ class BacktraceProcessor
             }
 
             //Merging/Intersecting Traces
-            $record['trace'][] = array_merge(
+            $record['extra']['trace'][] = array_merge(
                 $defaultTrace,
                 array_intersect_key(
                     $traceItem,

@@ -40,7 +40,7 @@ class GlobalsProcessor
 
     public function __invoke(array $record): array
     {
-        $record['php_globals'] = [];
+        $record['extra']['php_globals'] = [];
 
         foreach ($this->mappedGlobals as $storedName => $canMap) {
             if (!$canMap) {
@@ -50,7 +50,7 @@ class GlobalsProcessor
             $globalName = '_' . strtoupper($storedName);
 
             if ($globalValue = ($GLOBALS[$globalName] ?? null)) {
-                $record['php_globals'][$storedName] = $globalValue;
+                $record['extra']['php_globals'][$storedName] = $globalValue;
             }
         }
 
