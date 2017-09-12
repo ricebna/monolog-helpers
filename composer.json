@@ -1,0 +1,31 @@
+{
+  "name": "twistersfury/monolog-helpers",
+  "description": "Adds Some Common Utility Helpers To Monolog",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "keywords": [
+    "monolog",
+    "helper",
+    "globals",
+    "post"
+  ],
+  "authors": [
+    {
+      "name": "Twister's Fury",
+      "email": "info@twistersfury.com"
+    }
+  ],
+  "autoload" : {
+    "psr-4" : {
+      "TwistersFury\\Monolog\\": "./src"
+    }
+  },
+  "require" : {
+    "php": "^7.0",
+    "monolog/monolog": "2.0.x-dev"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.3.3",
+    "squizlabs/php_codesniffer": "^3.0"
+  }
+}
