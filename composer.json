@@ -17,7 +17,7 @@
   ],
   "autoload" : {
     "psr-4" : {
-      "TwistersFury\\Monolog\\": "./src"
+      "TwistersFury\\Monolog\\": "src/"
     }
   },
   "require" : {
