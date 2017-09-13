@@ -67,4 +67,28 @@ class BacktraceProcessorCest
             $testRecord['extra']['trace']
         );
     }
+
+    public function testInvokeWithSkipEmpty(\UnitTester $I)
+    {
+        $testSubject = new BacktraceProcessor(2);
+
+        $testRecord = $testSubject(
+            [
+                'trace' => [
+                    [
+                        'type'    => '->',
+                        'file'    => '',
+                        'line'    => '',
+                        'message' => '',
+                        'ignored' => 'ignored'
+                    ]
+                ]
+            ]
+        );
+
+        $I->assertEquals(
+            [],
+            $testRecord['extra']['trace']
+        );
+    }
 }

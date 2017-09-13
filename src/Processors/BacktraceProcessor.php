@@ -22,10 +22,16 @@ class BacktraceProcessor
      */
     protected $skipLevel = 3;
 
-    public function __construct(int $skipLevel = null)
+    protected $skipEmpty = true;
+
+    public function __construct(int $skipLevel = null, bool $skipEmpty = null)
     {
         if ($skipLevel !== null) {
             $this->skipLevel = $skipLevel;
+        }
+
+        if ($skipEmpty !== null) {
+            $this->skipEmpty = $skipEmpty;
         }
     }
 
@@ -44,7 +50,7 @@ class BacktraceProcessor
         $currentPos = 0;
 
         $defaultTrace = [
-            'type'    => '',
+            'type'    => '->',
             'file'    => '',
             'line'    => '',
             'message' => ''
@@ -57,13 +63,17 @@ class BacktraceProcessor
             }
 
             //Merging/Intersecting Traces
-            $record['extra']['trace'][] = array_merge(
+            $traceItem = array_merge(
                 $defaultTrace,
                 array_intersect_key(
                     $traceItem,
                     $defaultTrace
                 )
             );
+
+            if (!$this->skipEmpty || $traceItem != $defaultTrace) {
+                $record['extra']['trace'][] = $traceItem;
+            }
         }
 
         return $record;
