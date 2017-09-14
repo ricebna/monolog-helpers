@@ -2,7 +2,7 @@
 
 This repo contains various helpers for use with monolog. For use with PHP 7.0 and Monolog 2.0.
 
-![Current Status](https://travis-ci.org/twistersfury/monolog-helpers.svg?branch=master "Current Status")
+[![Build Status](https://travis-ci.org/twistersfury/monolog-helpers.svg?branch=master)](https://travis-ci.org/twistersfury/monolog-helpers)
 
 ## Processors ##
 
