@@ -22,7 +22,7 @@ install:
   - travis_retry composer install --quiet --no-interaction --no-ansi --no-progress --optimize-autoloader --dev --prefer-dist --no-suggest --ignore-platform-reqs
 
 script:
-  - vendor/bin/phpcs
+  - vendor/bin/phpcs .
   - vendor/bin/codecept build
   - vendor/bin/codecept run
 
